@@ -1,5 +1,5 @@
 import Table from '@/components/ui/Table'
-import { dataTable } from './data'
+import { dataTable } from '../LatestPurchases/data'
 import TableBody from './components/TableBody'
 
 const { Tr, Th, THead, TBody } = Table

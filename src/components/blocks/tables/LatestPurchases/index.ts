@@ -1,5 +1,5 @@
-import LatestPurchasesTable from './LatestPurchasesTable'
+import TokenUpdatesTable from '../TokenUpdates/TokenUpdatesTable'
 
-export { LatestPurchasesTable }
+export { TokenUpdatesTable }
 
-export default LatestPurchasesTable
+export default TokenUpdatesTable

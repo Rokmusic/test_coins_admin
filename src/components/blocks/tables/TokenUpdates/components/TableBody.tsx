@@ -1,9 +1,9 @@
 import { FC } from 'react'
-import { TDataTable } from '../data'
+import { TDataTable } from '../../LatestPurchases/data'
 import Table from '@/components/ui/Table'
 import { Button, Tooltip } from '@/components/ui'
 import { TOKEN_URL } from '@/constants/app.constant'
-import { ReactElement } from 'react-markdown/lib/react-markdown'
+
 const { Tr, Td } = Table
 
 const updateDataRender = (coin: TDataTable[0]) => {
@@ -74,20 +74,20 @@ const btnsControlRender = (coin: TDataTable[0]) => {
         <div key={coin.tokenName}>
             <div>
                 <Button
-                    onClick={() => onBtnApproveClick(coin.toUpdate)}
                     className="mr-2 mb-2"
                     variant="twoTone"
                     color="green-600"
+                    onClick={() => onBtnApproveClick(coin.toUpdate)}
                 >
                     Approve
                 </Button>
             </div>
             <div>
                 <Button
-                    onClick={() => onBtnDeleteClick(coin.contract)}
                     className="mr-2 mb-2"
                     variant="twoTone"
                     color="red-600"
+                    onClick={() => onBtnDeleteClick(coin.contract)}
                 >
                     Delete
                 </Button>
@@ -111,7 +111,7 @@ interface ITableBody {
     dataTable: TDataTable
 }
 
-const TableBody: React.FC<ITableBody> = ({ dataTable }) => {
+const TableBody: FC<ITableBody> = ({ dataTable }) => {
     return (
         <>
             {dataTable.map((coin, idx) => (
@@ -121,6 +121,7 @@ const TableBody: React.FC<ITableBody> = ({ dataTable }) => {
                             className={'underline'}
                             href={TOKEN_URL + coin.contract}
                             target={'_blank'}
+                            rel="noreferrer"
                         >
                             {coin.tokenName}
                         </a>

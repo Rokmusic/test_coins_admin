@@ -39,15 +39,16 @@ const dataTable = [
 ]
 
 const dataTableRender = () => {
-    return dataTable.map((row) => {
+    return dataTable.map((row, idx) => {
         return (
-            <Tr>
+            <Tr key={idx}>
                 <Td>
                     {row.type === 'Promoted Spot' ? (
                         <a
                             className={'underline'}
                             href={TOKEN_URL + row.contract}
                             target={'_blank'}
+                            rel="noreferrer"
                         >
                             {row.tokenName}
                         </a>

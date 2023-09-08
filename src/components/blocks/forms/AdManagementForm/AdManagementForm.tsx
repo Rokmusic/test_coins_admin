@@ -127,9 +127,9 @@ const AdManagementForm = () => {
                     <Select
                         value={adOption}
                         options={adOptions}
-                        onChange={onSelectAdOptionChange}
                         placeholder="Select type"
                         className={'mt-2'}
+                        onChange={onSelectAdOptionChange}
                     ></Select>
                 </label>
             </div>
@@ -139,9 +139,9 @@ const AdManagementForm = () => {
                     <Select
                         value={durationOption}
                         options={durationOptions}
-                        onChange={onSelectDurationOptionChange}
                         placeholder="Select Duration"
                         className={'mt-2'}
+                        onChange={onSelectDurationOptionChange}
                     ></Select>
                 </label>
             </div>
@@ -149,10 +149,10 @@ const AdManagementForm = () => {
                 <label ref={inputLabelPriceRef} className={'cursor-pointer'}>
                     Price in USD
                     <Input
-                        onChange={onInputPriceChange}
                         value={price}
                         placeholder="Price in USD"
                         className={'mt-2'}
+                        onChange={onInputPriceChange}
                     />
                 </label>
             </div>
@@ -185,19 +185,19 @@ const AdManagementForm = () => {
                     <label ref={inputLabelContractRef}>
                         Coin Contract Address
                         <Input
-                            onChange={onInputContractChange}
                             value={contract}
                             placeholder="Contract Address"
                             className={'mt-2'}
+                            onChange={onInputContractChange}
                         />
                     </label>
                 </div>
             )}
             <Button
-                onClick={onAddPromotionClick}
                 className="mr-2 mb-2"
                 variant="twoTone"
                 color="green-600"
+                onClick={onAddPromotionClick}
             >
                 Add Promotion
             </Button>

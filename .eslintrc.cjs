@@ -16,10 +16,10 @@ module.exports = {
         },
         'import/parsers': {
             '@typescript-eslint/parser': ['.ts', '.tsx'], // use typescript-eslint parser for .ts|tsx files.
-            alias: {
-                map: [['@/*', './src/*']],
-                extensions: ['.ts', '.tsx'],
-            },
+            // alias: {
+            //     map: [['@/*', './src/*']],
+            //     extensions: ['.ts', '.tsx'],
+            // },
         },
         'import/resolver': {
             typescript: {
