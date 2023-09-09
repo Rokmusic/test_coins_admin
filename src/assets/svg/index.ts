@@ -1,3 +1,7 @@
 export { default as DriversLicenseSvg } from './DriversLicenseSvg'
 export { default as NationalIdSvg } from './NationalIdSvg'
 export { default as PassportSvg } from './PassportSvg'
+export { default as CoinMarketcapSvg } from './CoinMarcketcapSvg'
+export { default as CoingeckoSvg } from './CoingeckoSvg'
+export { default as TelegramSvg } from './TelegramSvg'
+export { default as TwitterSvg } from './TwitterSvg'

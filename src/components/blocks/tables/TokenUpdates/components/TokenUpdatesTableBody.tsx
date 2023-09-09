@@ -111,7 +111,7 @@ interface ITableBody {
     dataTable: TDataTable
 }
 
-const TableBody: FC<ITableBody> = ({ dataTable }) => {
+const TokenUpdatesTableBody: FC<ITableBody> = ({ dataTable }) => {
     return (
         <>
             {dataTable.map((coin, idx) => (
@@ -134,4 +134,4 @@ const TableBody: FC<ITableBody> = ({ dataTable }) => {
     )
 }
 
-export default TableBody
+export default TokenUpdatesTableBody

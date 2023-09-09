@@ -13,15 +13,21 @@ export const protectedRoutes = [
     },
     /** Example purpose only, please remove */
     {
-        key: 'Token Updates',
+        key: 'token-updates',
         path: '/token-updates',
         component: lazy(() => import('@/views/pages/TokenUpdates')),
         authority: [],
     },
     {
-        key: 'Ad managment',
+        key: 'ad-managment',
         path: '/ad-managment',
         component: lazy(() => import('@/views/pages/AdManagement')),
+        authority: [],
+    },
+    {
+        key: 'tokens-approve',
+        path: '/tokens-approve',
+        component: lazy(() => import('@/views/pages/TokensApprove')),
         authority: [],
     },
 ]

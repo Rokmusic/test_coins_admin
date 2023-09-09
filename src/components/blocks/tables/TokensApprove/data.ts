@@ -1,0 +1,61 @@
+import coinLogo from '@/assets/image/bitcoin.png'
+
+export const tableDataTokensApprove = [
+    {
+        logoSrc: coinLogo,
+        name: 'test name coin',
+        contract: '0x70A8546f70d404AFa13912CD4f35584f56fe03cc',
+        liquidity: 123,
+        honeypot: false,
+        coinMarketcap: true,
+        coinGecko: true,
+        telegramUrl: 'telegarmUrl',
+        twitterUrl: '',
+    },
+    {
+        logoSrc: coinLogo,
+        name: 'test coin',
+        contract: '0x70A8546f70d404AFa13912CD4f35584f56fe03cc',
+        liquidity: 1233323,
+        honeypot: true,
+        coinMarketcap: false,
+        coinGecko: false,
+        telegramUrl: '',
+        twitterUrl: 'twitterUrl',
+    },
+    {
+        logoSrc: coinLogo,
+        name: 'Arty',
+        contract: '0x70A8546f70d404AFa13912CD4f35584f56fe03cc',
+        liquidity: 1233323,
+        honeypot: true,
+        coinMarketcap: false,
+        coinGecko: false,
+        telegramUrl: '',
+        twitterUrl: 'twitterUrl',
+    },
+    {
+        logoSrc: coinLogo,
+        name: 'Artyy',
+        contract: '0x70A8546f70d404AFa13912CD4f35584f56fe03cc',
+        liquidity: 1233323,
+        honeypot: true,
+        coinMarketcap: false,
+        coinGecko: false,
+        telegramUrl: '',
+        twitterUrl: 'twitterUrl',
+    },
+    {
+        logoSrc: coinLogo,
+        name: 'Artytest',
+        contract: '0x70A8546f70d404AFa13912CD4f35584f56fe03cc',
+        liquidity: 1233323,
+        honeypot: true,
+        coinMarketcap: false,
+        coinGecko: false,
+        telegramUrl: '',
+        twitterUrl: 'twitterUrl',
+    },
+]
+
+export type TTableDataTokensApprove = typeof tableDataTokensApprove

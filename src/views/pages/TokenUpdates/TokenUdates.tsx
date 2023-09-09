@@ -1,4 +1,4 @@
-import TokenUpdatesTable from '@/components/blocks/tables/LatestPurchases'
+import TokenUpdatesTable from '@/components/blocks/tables/TokenUpdates'
 
 const TokenUdates = () => {
     return (

@@ -1,6 +1,6 @@
 import Table from '@/components/ui/Table'
 import { dataTable } from '../LatestPurchases/data'
-import TableBody from './components/TableBody'
+import TokenUpdatesTableBody from './components/TokenUpdatesTableBody'
 
 const { Tr, Th, THead, TBody } = Table
 
@@ -17,7 +17,7 @@ const TokenUpdatesTable = () => {
                     </Tr>
                 </THead>
                 <TBody>
-                    <TableBody dataTable={dataTable} />
+                    <TokenUpdatesTableBody dataTable={dataTable} />
                 </TBody>
             </Table>
         </div>

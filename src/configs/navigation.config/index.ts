@@ -37,6 +37,16 @@ const navigationConfig: NavigationTree[] = [
         authority: [],
         subMenu: [],
     },
+    {
+        key: 'tokens-approve',
+        path: '/tokens-approve',
+        title: 'Tokens Approve',
+        translateKey: 'nav.tokens-approve',
+        icon: 'tokensApprove',
+        type: NAV_ITEM_TYPE_ITEM,
+        authority: [],
+        subMenu: [],
+    },
     // {
     //     key: 'collapseMenu',
     //     path: '',

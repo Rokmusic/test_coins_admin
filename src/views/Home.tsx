@@ -1,7 +1,7 @@
 import SalesReportChart from '@/components/blocks/charts/SalesReport'
 import TokenSubmitsChart from '@/components/blocks/charts/TokenSubmits/TokneSubmitsChart'
 import RevenueCard from '@/components/blocks/charts/cards/RevenueCard/RevenueCard'
-import LatestPurchasesTable from '@/components/blocks/tables/TokenUpdates'
+import LatestPurchasesTable from '@/components/blocks/tables/LatestPurchases'
 
 const Home = () => {
     return (
@@ -27,9 +27,6 @@ const Home = () => {
             </div>
             <div>
                 <LatestPurchasesTable />
-            </div>
-            <div className={'mt-4'}>
-                <h3>Ad management</h3>
             </div>
         </div>
     )
