@@ -40,10 +40,16 @@ const TokensApprove = () => {
     return (
         <div>
             <div className={'flex justify-center gap-4 mb-4'}>
-                <Button onClick={() => onBtnTabClick('Waiting' as TTabs)}>
+                <Button
+                    active={tab === 'Waiting'}
+                    onClick={() => onBtnTabClick('Waiting' as TTabs)}
+                >
                     Waiting
                 </Button>
-                <Button onClick={() => onBtnTabClick('Declined' as TTabs)}>
+                <Button
+                    active={tab === 'Declined'}
+                    onClick={() => onBtnTabClick('Declined' as TTabs)}
+                >
                     Declined
                 </Button>
             </div>

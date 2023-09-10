@@ -47,6 +47,16 @@ const navigationConfig: NavigationTree[] = [
         authority: [],
         subMenu: [],
     },
+    {
+        key: 'dex-swaps',
+        path: '/dex-swaps',
+        title: 'DEX Swaps',
+        translateKey: 'nav.dex-swaps',
+        icon: 'dexSwaps',
+        type: NAV_ITEM_TYPE_ITEM,
+        authority: [],
+        subMenu: [],
+    },
     // {
     //     key: 'collapseMenu',
     //     path: '',

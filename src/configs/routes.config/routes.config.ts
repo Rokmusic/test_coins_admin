@@ -30,4 +30,10 @@ export const protectedRoutes = [
         component: lazy(() => import('@/views/pages/TokensApprove')),
         authority: [],
     },
+    {
+        key: 'dex-swaps',
+        path: '/dex-swaps',
+        component: lazy(() => import('@/views/pages/DexSwaps')),
+        authority: [],
+    },
 ]

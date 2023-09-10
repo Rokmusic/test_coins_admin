@@ -1,4 +1,4 @@
-import LatestPurchasesTable from '../LatestPurchases/LatestPurchasesTable'
+import LatestPurchasesTable from './LatestPurchasesTable'
 
 export { LatestPurchasesTable }
 
