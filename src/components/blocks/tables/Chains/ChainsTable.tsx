@@ -11,26 +11,29 @@ import {
     Row,
 } from '@tanstack/react-table'
 
-import coinLogo from '@/assets/image/bitcoin.png'
 import { Button } from '@/components/ui'
 import AddEditFrom from './components/AddEditForm'
 import ConfirmationModal from './components/ConfirmationModal'
 
-type TTableDataDexSwaps = {
+type TTableDataChains = {
     name: string
     code: string
-    iconSrc: string
+    url: string
+    explorerUrl: string
+    fullChainName: string
 }
 
 const { Tr, Th, Td, THead, TBody } = Table
 
-const tableData = (): TTableDataDexSwaps[] => {
+const tableData = (): TTableDataChains[] => {
     const arr = []
     for (let i = 0; i < 100; i++) {
         arr.push({
             name: `test name ${i}`,
-            iconSrc: coinLogo,
+            url: i + 'url',
             code: i + 'code',
+            explorerUrl: i + 'explorerUrl',
+            fullChainName: i + 'fullChainName',
         })
     }
 
@@ -42,41 +45,33 @@ const totalData = tableData().length
 const initialObjToEditAdd = {
     code: '',
     name: '',
-    iconSrc: '',
-    tradeUrl: '',
+    url: '',
+    explorerUrl: '',
+    fullChainName: '',
 }
 
-export type TInitialObjToEditAdd = {
-    code: string
-    name: string
-    iconSrc: string
-    tradeUrl: string
-}
+export type TInitialObjToEditAdd = typeof initialObjToEditAdd
 
-const DexSwapsTable = () => {
-    const [toDeleteDex, setToDeleteDex] =
-        useState<TTableDataDexSwaps['code']>('')
+const ChainsTable = () => {
+    const [toDeleteItem, setToDeleteItem] =
+        useState<TTableDataChains['code']>('')
     const [isConfirm, setIsConfirm] = useState<boolean | undefined>(undefined)
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false)
     const [isOpenModalEdit, setIsOpenModalEdit] = useState<boolean>(false)
-    const [dexDataToEditAdd, setDexDataToEditAdd] =
+    const [itemDataToEditAdd, setItemDataToEditAdd] =
         useState<TInitialObjToEditAdd>(initialObjToEditAdd)
 
     useEffect(() => {
-        setToDeleteDex('')
+        setToDeleteItem('')
         setIsOpenModal(false)
         setIsConfirm(undefined)
 
-        if (isConfirm) console.log(toDeleteDex, 'toDeleteDex')
+        if (isConfirm) console.log(toDeleteItem, 'toDeleteItem')
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isConfirm])
 
-    const columns = useMemo<ColumnDef<TTableDataDexSwaps>[]>(
+    const columns = useMemo<ColumnDef<TTableDataChains>[]>(
         () => [
-            {
-                header: 'Icon',
-                accessorKey: 'iconSrc',
-            },
             {
                 header: 'Name',
                 accessorKey: 'name',
@@ -84,6 +79,18 @@ const DexSwapsTable = () => {
             {
                 header: 'Code',
                 accessorKey: 'code',
+            },
+            {
+                header: 'URL',
+                accessorKey: 'url',
+            },
+            {
+                header: 'Explorer URL',
+                accessorKey: 'explorerUrl',
+            },
+            {
+                header: 'Full chain name',
+                accessorKey: 'fullChainName',
             },
         ],
         []
@@ -104,45 +111,69 @@ const DexSwapsTable = () => {
         table.setPageIndex(page - 1)
     }
 
-    const onBtnDeleteClick = (row: Row<TTableDataDexSwaps>) => {
+    const onBtnDeleteClick = (row: Row<TTableDataChains>) => {
         console.log(row.getVisibleCells()[0].getValue(), '')
 
-        const dexCodeToDelete = row
+        const itemCodeToDelete = row
             .getVisibleCells()
-            .filter((cell) => cell.column.id === 'code')[0]
+            .filter(
+                (cell) => cell.column.id === ('code' as keyof TTableDataChains)
+            )[0]
             .getValue() as string
 
-        setToDeleteDex(dexCodeToDelete)
+        setToDeleteItem(itemCodeToDelete)
         setIsOpenModal(true)
     }
 
-    const onBtnEditClick = (row: Row<TTableDataDexSwaps>) => {
-        const dexCode = row
+    const onBtnEditClick = (row: Row<TTableDataChains>) => {
+        const itemCode = row
             .getVisibleCells()
-            .filter((cell) => cell.column.id === 'code')[0]
+            .filter(
+                (cell) => cell.column.id === ('code' as keyof TTableDataChains)
+            )[0]
             .getValue() as string
-        const dexName = row
+        const itemName = row
             .getVisibleCells()
-            .filter((cell) => cell.column.id === 'name')[0]
+            .filter(
+                (cell) => cell.column.id === ('name' as keyof TTableDataChains)
+            )[0]
             .getValue() as string
-        const dexIcon = row
+        const itemUrl = row
             .getVisibleCells()
-            .filter((cell) => cell.column.id === 'iconSrc')[0]
+            .filter(
+                (cell) => cell.column.id === ('url' as keyof TTableDataChains)
+            )[0]
+            .getValue() as string
+        const itemExplorerUrl = row
+            .getVisibleCells()
+            .filter(
+                (cell) =>
+                    cell.column.id === ('explorerUrl' as keyof TTableDataChains)
+            )[0]
+            .getValue() as string
+        const itemFullChainName = row
+            .getVisibleCells()
+            .filter(
+                (cell) =>
+                    cell.column.id ===
+                    ('fullChainName' as keyof TTableDataChains)
+            )[0]
             .getValue() as string
 
         const objToEdit = {
-            code: dexCode,
-            name: dexName,
-            iconSrc: dexIcon,
-            tradeUrl: '',
+            code: itemCode,
+            name: itemName,
+            url: itemUrl,
+            explorerUrl: itemExplorerUrl,
+            fullChainName: itemFullChainName,
         }
 
-        setDexDataToEditAdd(objToEdit)
+        setItemDataToEditAdd(objToEdit)
         setIsOpenModalEdit(true)
     }
 
-    const onBtnNewDexClick = () => {
-        setDexDataToEditAdd(initialObjToEditAdd)
+    const onBtnNewItemClick = () => {
+        setItemDataToEditAdd(initialObjToEditAdd)
         setIsOpenModalEdit(true)
     }
 
@@ -152,9 +183,9 @@ const DexSwapsTable = () => {
                 color={'green-600'}
                 variant="twoTone"
                 className={'mb-4'}
-                onClick={onBtnNewDexClick}
+                onClick={onBtnNewItemClick}
             >
-                New DEX
+                Add chain
             </Button>
             <Table>
                 <THead>
@@ -184,7 +215,7 @@ const DexSwapsTable = () => {
                                 {row.getVisibleCells().map((cell) => {
                                     if (
                                         cell.column.id ===
-                                        ('iconSrc' as keyof TTableDataDexSwaps)
+                                        ('iconSrc' as keyof TTableDataChains)
                                     ) {
                                         const imageSrc = cell.getValue()
                                         return (
@@ -238,12 +269,12 @@ const DexSwapsTable = () => {
             {isOpenModal && (
                 <ConfirmationModal
                     setIsConfirm={setIsConfirm}
-                    code={toDeleteDex}
+                    code={toDeleteItem}
                 />
             )}
             {isOpenModalEdit && (
                 <AddEditFrom
-                    data={dexDataToEditAdd}
+                    data={itemDataToEditAdd}
                     setIsOpenModalEdit={setIsOpenModalEdit}
                 />
             )}
@@ -251,4 +282,4 @@ const DexSwapsTable = () => {
     )
 }
 
-export default DexSwapsTable
+export default ChainsTable

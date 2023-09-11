@@ -4,6 +4,7 @@ import {
     HiOutlineAdjustments,
     HiOutlineBadgeCheck,
     HiOutlineLibrary,
+    HiOutlineNewspaper,
 } from 'react-icons/hi'
 
 export type NavigationIcons = Record<string, JSX.Element>
@@ -14,6 +15,7 @@ const navigationIcon: NavigationIcons = {
     adManagment: <HiOutlineAdjustments />,
     tokensApprove: <HiOutlineBadgeCheck />,
     dexSwaps: <HiOutlineLibrary />,
+    chains: <HiOutlineNewspaper />,
 }
 
 export default navigationIcon

@@ -57,6 +57,16 @@ const navigationConfig: NavigationTree[] = [
         authority: [],
         subMenu: [],
     },
+    {
+        key: 'chains',
+        path: '/chains',
+        title: 'Chains',
+        translateKey: 'nav.chains',
+        icon: 'chains',
+        type: NAV_ITEM_TYPE_ITEM,
+        authority: [],
+        subMenu: [],
+    },
     // {
     //     key: 'collapseMenu',
     //     path: '',

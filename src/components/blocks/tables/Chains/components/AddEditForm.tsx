@@ -1,7 +1,7 @@
 import { Dispatch, FC, SetStateAction, useRef, useState } from 'react'
-import { TInitialObjToEditAdd } from '../DexSwapsTable'
-import { Avatar, Button, Input, Upload } from '@/components/ui'
-import { HiOutlinePlus, HiPlus } from 'react-icons/hi'
+import { TInitialObjToEditAdd } from '../ChainsTable'
+import { Button, Input } from '@/components/ui'
+import { HiPlus } from 'react-icons/hi'
 import useOnClickOutsideCustom from '@/components/ui/hooks/custom/useOnClickOutsideCustom'
 
 interface IAddEditFrom {
@@ -26,27 +26,6 @@ const AddEditFrom: FC<IAddEditFrom> = ({ data, setIsOpenModalEdit }) => {
         }))
     }
 
-    const onFileUpload = (files: File[]) => {
-        if (files.length > 0) {
-            onInputChange(URL.createObjectURL(files[0]), 'iconSrc')
-        }
-    }
-
-    const beforeUpload = (files: FileList | null) => {
-        let valid: string | boolean = true
-
-        const allowedFileType = ['image/jpeg', 'image/png']
-        if (files) {
-            for (const file of files) {
-                if (!allowedFileType.includes(file.type)) {
-                    valid = 'Please upload a .jpeg or .png file!'
-                }
-            }
-        }
-
-        return valid
-    }
-
     const onBtnCloseClick = () => {
         setIsOpenModalEdit(false)
     }
@@ -69,12 +48,23 @@ const AddEditFrom: FC<IAddEditFrom> = ({ data, setIsOpenModalEdit }) => {
                     ) : (
                         <span className={'text-green-600'}>New</span>
                     )}{' '}
-                    Dex{' '}
+                    Chain{' '}
                     <span className={'text-white'}>
                         {dataState.name ? `- ${dataState.name}` : ''}
                     </span>
                 </div>
                 <div>
+                    <label>
+                        Name
+                        <Input
+                            value={dataState.name}
+                            className={'mt-2'}
+                            type="text"
+                            onChange={(e) =>
+                                onInputChange(e.target.value, 'name')
+                            }
+                        />
+                    </label>
                     <label>
                         Code
                         <Input
@@ -87,44 +77,38 @@ const AddEditFrom: FC<IAddEditFrom> = ({ data, setIsOpenModalEdit }) => {
                         />
                     </label>
                     <label>
-                        Name
+                        Trade URL
                         <Input
-                            value={dataState.name}
+                            value={dataState.url}
                             className={'mt-2'}
                             type="text"
                             onChange={(e) =>
-                                onInputChange(e.target.value, 'name')
+                                onInputChange(e.target.value, 'url')
                             }
                         />
                     </label>
-                    <div className={'mt-2'}>
-                        <div>Icon</div>
-                        <Upload
-                            multiple
-                            className="cursor-pointer"
-                            showList={false}
-                            uploadLimit={1}
-                            beforeUpload={beforeUpload}
-                            onChange={onFileUpload}
-                        >
-                            <Avatar
-                                size={100}
-                                src={dataState.iconSrc}
-                                icon={<HiOutlinePlus />}
-                            />
-                        </Upload>
-                    </div>
                     <label>
-                        Trade URL
+                        Explorer URL
                         <Input
-                            value={dataState.tradeUrl}
+                            value={dataState.explorerUrl}
                             className={'mt-2'}
                             type="text"
                             placeholder={
-                                'Example: https://pancakeswap.finance/swap?outputCurrency={address}'
+                                'Example: https://bscscan.com/address/{address}'
                             }
                             onChange={(e) =>
-                                onInputChange(e.target.value, 'tradeUrl')
+                                onInputChange(e.target.value, 'explorerUrl')
+                            }
+                        />
+                    </label>
+                    <label>
+                        Full chain name
+                        <Input
+                            value={dataState.fullChainName}
+                            className={'mt-2'}
+                            type="text"
+                            onChange={(e) =>
+                                onInputChange(e.target.value, 'fullChainName')
                             }
                         />
                     </label>
@@ -137,7 +121,7 @@ const AddEditFrom: FC<IAddEditFrom> = ({ data, setIsOpenModalEdit }) => {
                 <Button
                     size="xs"
                     icon={<HiPlus className={'rotate-45'} />}
-                    className={'absolute top-1 right-1'}
+                    className={'absolute top-2 right-1 lg:top-1'}
                     onClick={onBtnCloseClick}
                 />
             </div>

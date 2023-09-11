@@ -1,6 +1,6 @@
+import RevenueCard from '@/components/blocks/cards/RevenueCard/RevenueCard'
 import SalesReportChart from '@/components/blocks/charts/SalesReport'
-import TokenSubmitsChart from '@/components/blocks/charts/TokenSubmits/TokneSubmitsChart'
-import RevenueCard from '@/components/blocks/charts/cards/RevenueCard/RevenueCard'
+import TokenSubmitsChart from '@/components/blocks/charts/TokenSubmits'
 import LatestPurchasesTable from '@/components/blocks/tables/LatestPurchases'
 
 const Home = () => {
